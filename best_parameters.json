@@ -1,0 +1,1 @@
+{"be": 14, "lr": 0.01, "lstm_dropout_rate": 0.03, "emb_dropout_rate": 0.03, "decay_epochs": 20, "tf1": 0.689960230500771, "vf1": 0.6900413927440955, "nepochs": 100}

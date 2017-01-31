@@ -1,0 +1,4 @@
+loading training data from vqa_data/train_binary_questions.txt vqa_data/train_binary_ans.txt vqa_data/train_object.json loading valid data from vqa_data/val_binary_questions.txt vqa_data/val_binary_ans.txt vqa_data/val_object.json
+('train q[0]', ['Does', 'the', 'dog', 'like', 'being', 'petted'])
+voc_size: 4611
+obj_size: 152
