@@ -217,13 +217,17 @@ def train_single(_args, f_cost, f_update, epoch_id, learning_rate, nsentences, *
             '''
             if weighted or dep is None:
                 iter_cost = train_instance(learning_rate, f_cost, f_update, x, obj, batch_data[-1], x_masks, obj_masks )
-                print len(x), len(x_masks), len(obj), len(batch_data[-1]), len(obj_masks)
-                print x
-                print obj
-                print x_masks
-                print obj_masks
-                print batch_data[-1]
-                print iter_cost
+
+                ## for debug with professor and Nunyin ##
+                # print len(x), len(x_masks), len(obj), len(batch_data[-1]), len(obj_masks)
+                # print x
+                # print obj
+                # print x_masks
+                # print obj_masks
+                # print batch_data[-1]
+                # print iter_cost
+                ## for debug with professor and Nunyin ##
+
                 #for ii, c in enumerate(iter_cost):
                 #    temp_cost_arr[ii] += c
                 aggregate_cost += iter_cost#[0]
