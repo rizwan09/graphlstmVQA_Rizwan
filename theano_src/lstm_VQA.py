@@ -217,6 +217,13 @@ def train_single(_args, f_cost, f_update, epoch_id, learning_rate, nsentences, *
             '''
             if weighted or dep is None:
                 iter_cost = train_instance(learning_rate, f_cost, f_update, x, obj, batch_data[-1], x_masks, obj_masks )
+                print len(x), len(x_masks), len(obj), len(batch_data[-1]), len(obj_masks)
+                print x
+                print obj
+                print x_masks
+                print obj_masks
+                print batch_data[-1]
+                print iter_cost
                 #for ii, c in enumerate(iter_cost):
                 #    temp_cost_arr[ii] += c
                 aggregate_cost += iter_cost#[0]
@@ -541,7 +548,7 @@ def run_single_corpus(_args):
     # For the GENIA experiment
     _args.train_set, _args.valid_set, _args.test_set, _args.dicts = _args.loaddata(_args)
 
-    return
+    #return
 
 	#.train_path, _args.valid_path, num_entities=_args.num_entity, dep=_args.graph, train_dep=_args.train_graph, valid_dep=_args.valid_graph, add=_args.add)
     # For the n-ary experiments
@@ -622,6 +629,7 @@ def create_arg_parser(args=None):
     add_arg('--weighted'         , False)
     add_arg('--add'         , False)
     add_arg('--print_prediction'    , True)
+    add_arg('--label_path'    , "vqa_data")
     add_arg('--current'    , 0)
     add_arg('--total'    , 0)
     ## Task

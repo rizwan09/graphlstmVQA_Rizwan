@@ -33,11 +33,16 @@ def load_data(args):
     args.val_id = args.valid_path+'binary_id.txt'
     args.val_obj = args.valid_path+'object.json'
 
-    args.label_dict = args.valid_path+'label_dict.json'
+    args.label_dict = args.label_path+'/label_dict.json'
 
     print ('loading training data from ' + args.train_q + " " + args.train_a+ " " + args.train_obj + ' loading valid data from ' + args.val_q + " " +args.val_a+ " " + args.val_obj)
     corpus = []
-    (train_q, val_q, train_ans, val_ans, train_obj, val_obj) = util.loadBinaryProblem(args)
+
+    #(train_q, val_q, train_ans, val_ans, train_obj, val_obj) = util.loadBinaryProblem(args)
+    (train_q, val_q, train_ans, val_ans, train_obj, val_obj) = util.loadMulticlassProblem(args)
+
+
+
     corpus.append(((train_q, train_ans, train_obj), None))
     corpus.append(((val_q, val_ans, val_obj),None))
         # load obj
@@ -91,7 +96,15 @@ def load_data(args):
         train.append(None)
         valid.append(None)
 
-    label_dict = {'yes':1, 'no':0, 'maybe':1}
+    ################## multiclass labeling by Rizwan #######################
+
+    #label_dict = {'yes':1, 'no':0, 'maybe':1}
+    with open(args.label_dict , "r") as label_f:
+         label_dict = json.load(label_f)
+         label_dict['maybe'] = 1
+
+    ################## multiclass labeling by Rizwan #######################
+
     dics = {'words2idx': words2idx, 'labels2idx': label_dict, 'objs2idx': objs2idx} 
     if dep:
         dics['arcs2idx'] = arc_type_dict

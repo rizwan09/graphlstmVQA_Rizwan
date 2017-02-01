@@ -41,7 +41,7 @@ for lr in LEARNING_RATE_VARIATIONS:
                                 run_command = 'THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32,nvcc.flags=-use_fast_math,exception_verbosity=high time python2.7 theano_src/lstm_VQA.py --train_path ' + DATA_PATH + '/train_ --valid_path ' + DATA_PATH + \
                                           '/val_ --featurelist_path ' + DATA_PATH + '/featureList.txt --emb_dir /if1/kc2wc/data/glove/glove.6B.300d_w_header.txt --batch_size '+str(BATCH_SIZE)+' --lr ' + str(lr) + ' --emb_dropout_rate ' + str(emb_dropout_rate) + \
                                               ' --lstm_dropout_rate ' + str(lstm_dropout_rate) + ' --circuit VQA --decay_epochs '+str(decay_epochs)+' --MLP_hidden_out_dim '+ str(MLP_hidden_out_dim) +' --current '+str(i+1)+ ' --total '+str(total)+\
-                                              ' --L2Reg_reg_weight '+ str(L2Reg_reg_weight)+' --minimum_lr '+ str(minimum_lr)+ ' --nepochs '+ str(nepochs)+'| tee Object_vqa_results'
+                                              ' --L2Reg_reg_weight '+ str(L2Reg_reg_weight)+' --minimum_lr '+ str(minimum_lr)+ ' --nepochs '+ str(nepochs)+ ' --label_path '+DATA_PATH+ '| tee Object_vqa_results'
 
                                 os.system(run_command)
                                 #print 'finished lr: ', lr, ' emb drobout rate: ', emb_dropout_rate, ' lstm drop out rate: ', lstm_dropout_rate
