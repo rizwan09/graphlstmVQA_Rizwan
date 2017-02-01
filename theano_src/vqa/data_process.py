@@ -38,8 +38,8 @@ def load_data(args):
     print ('loading training data from ' + args.train_q + " " + args.train_a+ " " + args.train_obj + ' loading valid data from ' + args.val_q + " " +args.val_a+ " " + args.val_obj)
     corpus = []
 
-    #(train_q, val_q, train_ans, val_ans, train_obj, val_obj) = util.loadBinaryProblem(args)
-    (train_q, val_q, train_ans, val_ans, train_obj, val_obj) = util.loadMulticlassProblem(args)
+    (train_q, val_q, train_ans, val_ans, train_obj, val_obj) = util.loadBinaryProblem(args)
+    #(train_q, val_q, train_ans, val_ans, train_obj, val_obj) = util.loadMulticlassProblem(args)
 
 
 
